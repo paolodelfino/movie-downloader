@@ -1,3 +1,3 @@
 # movie-downloader
 
-It downloads movies and tvshows
+It downloads movies and tv shows

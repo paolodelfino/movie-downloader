@@ -2,23 +2,10 @@
   "name": "movie-downloader",
   "version": "0.0.1",
   "description": "",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/inex.js"
-    },
-    "./dist/index.js": "./dist/index.js",
-    "./dist/index.mjs": "./dist/index.mjs",
-    "./dist/index.d.ts": "./dist/index.d.ts"
-  },
-  "bin": "./dist/index.js",
+  "bin": "./src/index.js",
+  "type": "module",
   "scripts": {
-    "build": "tsup",
-    "dev": "npm run build -- --watch",
-    "test": "node dist/index.js"
+    "test": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,15 +14,13 @@
   "bugs": {
     "url": "https://github.com/paolodelfino/movie-downloader/issues"
   },
-  "files": [
-    "dist"
-  ],
   "keywords": [],
   "author": "paolodelfino",
   "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^20.5.4",
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2"
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "inquirer": "^9.2.10",
+    "nanospinner": "^1.1.0",
+    "sc-wrapper": "^1.0.0"
   }
 }

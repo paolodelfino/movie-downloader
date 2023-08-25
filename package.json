@@ -14,10 +14,11 @@
     "./dist/index.mjs": "./dist/index.mjs",
     "./dist/index.d.ts": "./dist/index.d.ts"
   },
+  "bin": "./dist/index.js",
   "scripts": {
     "build": "tsup",
     "dev": "npm run build -- --watch",
-    "test": "node test/index.js"
+    "test": "node dist/index.js"
   },
   "repository": {
     "type": "git",

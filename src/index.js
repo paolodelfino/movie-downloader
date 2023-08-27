@@ -8,10 +8,10 @@ import { sline } from "./utils.js";
 import nanospinner, { createSpinner } from "nanospinner";
 import * as sc_wrapper from "sc-wrapper";
 
-const basepath = process.argv[1].substring(
-  0,
-  process.argv[1].lastIndexOf("\\")
-);
+// const basepath = process.argv[1].substring(
+//   0,
+//   process.argv[1].lastIndexOf("\\")
+// );
 
 header();
 sline();

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import sanitizeFilename from "sanitize-filename";
 import path from "path";
 import fs from "fs";
 import inquirer from "inquirer";
@@ -32,7 +33,8 @@ const playlist = await retrieve_playlist(movie_id, episode_id);
 sline();
 const outputdir = await retrieve_outputdir();
 
-await download(playlist, path.join(outputdir, `${movie_name}.mp4`));
+const sanitizedMovieName = sanitizeFilename(movie_name);
+await download(playlist, path.join(outputdir, `${sanitizedMovieName}.mp4`));
 
 function header() {
   console.log(

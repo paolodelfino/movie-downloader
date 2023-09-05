@@ -1,6 +1,6 @@
 {
   "name": "movie-downloader",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "",
   "bin": "./src/index.js",
   "type": "module",
@@ -21,6 +21,7 @@
     "chalk": "^5.3.0",
     "inquirer": "^9.2.10",
     "nanospinner": "^1.1.0",
+    "sanitize-filename": "^1.6.0",
     "sc-wrapper": "^1.0.0"
   }
 }

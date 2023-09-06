@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
-import sanitizeFilename from "sanitize-filename";
-import path from "path";
+import chalk from "chalk";
 import fs from "fs";
 import inquirer from "inquirer";
-import chalk from "chalk";
-import { sline } from "./utils.js";
 import nanospinner, { createSpinner } from "nanospinner";
+import path from "path";
+import { exit } from "process";
+import sanitizeFilename from "sanitize-filename";
 import * as sc_wrapper from "sc-wrapper";
+import { sline } from "./utils.js";
 
 // const basepath = process.argv[1].substring(
 //   0,
@@ -21,6 +22,7 @@ const name = await retrieve_query();
 
 sline();
 const entries = await search(name);
+if (entries.length == 0) exit(0);
 
 sline();
 const { movie_name, movie_id, episode_id, season_number } = await choose(
@@ -33,8 +35,8 @@ const playlist = await retrieve_playlist(movie_id, episode_id);
 sline();
 const outputdir = await retrieve_outputdir();
 
-const sanitizedMovieName = sanitizeFilename(movie_name);
-await download(playlist, path.join(outputdir, `${sanitizedMovieName}.mp4`));
+const filename = sanitizeFilename(movie_name);
+await download(playlist, path.join(outputdir, `${filename}.mp4`));
 
 function header() {
   console.log(
@@ -75,7 +77,7 @@ async function search(name) {
   });
   if (found.length == 0) {
     spinner.error({
-      text: "No results",
+      text: " No results",
     });
   }
   spinner.success({

@@ -22,6 +22,6 @@
     "inquirer": "^9.2.10",
     "nanospinner": "^1.1.0",
     "sanitize-filename": "^1.6.0",
-    "sc-wrapper": "^1.0.0"
+    "sc-wrapper": "^1.1.3"
   }
 }

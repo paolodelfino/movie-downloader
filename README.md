@@ -4,10 +4,11 @@ It downloads movies and tv shows
 
 # NPM
 
-**You can use it via npx command**
+**You can use it via npx command.**
+**Always use @latest for patches.**
 
 ```bash
-npx movie-downloader
+npx movie-downloader@latest
 ```
 
 # Demo

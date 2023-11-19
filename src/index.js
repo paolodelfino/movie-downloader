@@ -18,6 +18,9 @@ import { sline } from "./utils.js";
 header();
 sline();
 
+await update_url_if_necessary();
+sline();
+
 const name = await retrieve_query();
 
 sline();
@@ -44,6 +47,26 @@ function header() {
       chalk.bold("  🐙  movie-downloader  ")
     )}`
   );
+}
+
+async function update_url_if_necessary() {
+  if (!(await sc_wrapper.check_url())) {
+    console.log(
+      `${sc_wrapper.SC_URL} is outdated. Send a message to this bot: https://t.me/BelloFigoIlRobot`
+    );
+
+    const updated_url = (
+      await inquirer.prompt({
+        type: "input",
+        name: "updated_url",
+        message: "Provide the update url ",
+        validate: (i) => {
+          return Boolean(i.trim());
+        },
+      })
+    ).updated_url;
+    sc_wrapper.update_url(updated_url);
+  }
 }
 
 /**
